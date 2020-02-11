@@ -12,7 +12,7 @@ class LibraryTest {
 
     @Test
     public void shouldReturnListOfBooks() {
-        Book book1 = new Book("Title");
+        Book book1 = new Book("Title", "author", 2020);
         Library library = new Library(List.of(book1));
 
         assertThat(List.of(book1), is(equalTo(library.getBooks())));

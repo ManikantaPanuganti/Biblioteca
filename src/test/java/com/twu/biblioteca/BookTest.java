@@ -10,15 +10,15 @@ class BookTest {
 
     @Test
     public void shouldEqualTwoBooksWithSameTitle() {
-        Book book1 = new Book("Title1");
-        Book book2 = new Book("Title1");
+        Book book1 = new Book("Title1", "author", 2020);
+        Book book2 = new Book("Title1", "author", 2020);
 
         assertThat(book1, is(equalTo(book2)));
     }
 
     @Test
     public void shouldReturnTitleOfTheBook() {
-        Book book = new Book("Title");
+        Book book = new Book("Title", "author", 2020);
 
         assertThat(book.getTitle(), is(equalTo("Title")));
     }

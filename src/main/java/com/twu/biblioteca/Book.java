@@ -4,9 +4,13 @@ import java.util.Objects;
 
 public class Book {
     private final String title;
+    private final String author;
+    private final int publication_year;
 
-    public Book(String title1) {
-        title = title1;
+    public Book(String title, String author, int publication_Year) {
+        this.title = title;
+        this.author = author;
+        publication_year = publication_Year;
     }
 
     @Override
