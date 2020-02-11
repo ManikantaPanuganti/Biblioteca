@@ -22,4 +22,11 @@ class BookTest {
 
         assertThat(book.getTitle(), is(equalTo("Title")));
     }
+
+    @Test
+    public void shouldReturnAuthorOfTheBook() {
+        Book book = new Book("Title", "author", 2020);
+
+        assertThat(book.getAuthor(), is(equalTo("author")));
+    }
 }
