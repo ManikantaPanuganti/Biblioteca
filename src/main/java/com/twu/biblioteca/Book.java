@@ -21,4 +21,8 @@ public class Book {
     public int hashCode() {
         return Objects.hash(title);
     }
+
+    public String getTitle() {
+        return title;
+    }
 }

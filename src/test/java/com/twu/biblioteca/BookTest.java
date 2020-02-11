@@ -2,7 +2,9 @@ package com.twu.biblioteca;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 class BookTest {
 
@@ -11,6 +13,13 @@ class BookTest {
         Book book1 = new Book("Title1");
         Book book2 = new Book("Title1");
 
-        assertEquals(book1,book2);
+        assertThat(book1, is(equalTo(book2)));
+    }
+
+    @Test
+    public void shouldReturnTitleOfTheBook() {
+        Book book = new Book("Title");
+
+        assertThat(book.getTitle(), is(equalTo("Title")));
     }
 }
