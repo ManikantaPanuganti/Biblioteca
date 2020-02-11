@@ -33,4 +33,8 @@ public class Book {
     public String getAuthor() {
         return author;
     }
+
+    public int getPublicationYear() {
+        return publication_year;
+    }
 }
