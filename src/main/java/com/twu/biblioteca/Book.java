@@ -13,6 +13,22 @@ public class Book {
         publication_year = publication_Year;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getPublicationYear() {
+        return publication_year;
+    }
+
+    public String getString() {
+        return title + " " + author + " " + publication_year;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -24,17 +40,5 @@ public class Book {
     @Override
     public int hashCode() {
         return Objects.hash(title);
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public int getPublicationYear() {
-        return publication_year;
     }
 }

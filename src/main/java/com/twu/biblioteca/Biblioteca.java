@@ -1,10 +1,13 @@
 package com.twu.biblioteca;
 
+import java.util.List;
+
 public class Biblioteca {
 
     Library library;
     public void start() {
         System.out.println(welcome());
+        setLibrary(new Library(List.of(new Book("Title","Author",2020))));
         showBooks();
     }
 
@@ -17,6 +20,6 @@ public class Biblioteca {
     }
 
     void showBooks() {
-        library.getBooks().stream().map(Book::getTitle).forEach(System.out::println);
+        library.getBooks().stream().map(Book::getString).forEach(System.out::println);
     }
 }
