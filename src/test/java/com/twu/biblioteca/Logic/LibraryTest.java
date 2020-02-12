@@ -129,4 +129,18 @@ class LibraryTest {
         assertThrows(UnknownBook.class, () -> library.returnBook("Title2"));
     }
 
+    @Test
+    public void shouldCheckIfAMovieIsAvailable() {
+        ArrayList<Book> books = new ArrayList<>();
+        Movie movie = mock(Movie.class);
+        ArrayList movies = new ArrayList<Movie>();
+        movies.add(movie);
+        when(movie.getTitle()).thenReturn("Title");
+        Library library = new Library(books);
+        library.setMovies(movies);
+
+        assertTrue(library.isAvailableMovie("Title"));
+
+    }
+
 }
