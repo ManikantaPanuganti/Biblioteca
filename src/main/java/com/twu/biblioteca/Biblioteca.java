@@ -21,6 +21,9 @@ public class Biblioteca {
             menuOptions.get(option-1).onSelect(consoleUI,library);
             break;
         }
+        else if(option==2){
+            System.exit(0);
+        }
         else{
             out.println("Please select a valid option");
         }
