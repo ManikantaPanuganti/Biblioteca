@@ -9,6 +9,7 @@ public class Menu {
     Menu() {
         menuOptions.add(new ListBooks());
         menuOptions.add(new CheckOut());
+        menuOptions.add(new ReturnBook());
     }
 
     List<MenuOption> getOptions() {

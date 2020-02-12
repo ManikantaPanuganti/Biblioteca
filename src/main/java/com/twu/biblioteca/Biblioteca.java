@@ -13,8 +13,10 @@ public class Biblioteca {
     public void start() {
         out.println(welcome());
         Book book = new Book("Title", "Author", 2020);
+        Book book2 = new Book("Title2", "Author", 2020);
         ArrayList<Book> books = new ArrayList<>();
         books.add(book);
+        books.add(book2);
         setLibrary(new Library(books));
         Menu menu = new Menu();
         List<MenuOption> menuOptions = menu.getOptions();
@@ -23,10 +25,10 @@ public class Biblioteca {
         while (true) {
             displayMenu(menuOptions);
             int option = promptOption();
-            if (option <= 2) {
+            if (option <= 3) {
                 menuOptions.get(option - 1).onSelect(consoleUI, library);
 
-            } else if (option == 3) {
+            } else if (option == 4) {
                 break;
             } else {
                 out.println("Please select a valid option");
