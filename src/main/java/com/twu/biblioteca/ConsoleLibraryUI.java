@@ -48,5 +48,10 @@ public class ConsoleLibraryUI implements LibraryUI {
     public void handleSuccessfulMovieCheckout() {
         System.out.println("Thank you! Enjoy the Movie");
     }
+
+    @Override
+    public void handleUnSuccessfulMovieCheckedOut() {
+        System.out.println("Sorry that movie is not there");
+    }
 }
 
