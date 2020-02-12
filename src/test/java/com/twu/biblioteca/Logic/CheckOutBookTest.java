@@ -5,18 +5,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class CheckOutTest {
+class CheckOutBookTest {
 
     @Test
     public void shouldCheckOutABook() throws UnknownBook {
         LibraryUI libraryUi = mock(LibraryUI.class);
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
-        CheckOut checkOut = new CheckOut();
+        CheckOutBook checkOutBook = new CheckOutBook();
         doNothing().when(library).checkOut("BOOK");
 
 
-        checkOut.onSelect(libraryUi, library);
+        checkOutBook.onSelect(libraryUi, library);
 
         verify(libraryUi, times(1)).handleSuccessfulCheckOut();
     }
@@ -26,11 +26,11 @@ class CheckOutTest {
         LibraryUI libraryUi = mock(LibraryUI.class);
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
-        CheckOut checkOut = new CheckOut();
+        CheckOutBook checkOutBook = new CheckOutBook();
         doThrow(UnknownBook.class).when(library).checkOut("BOOK");
 
 
-        checkOut.onSelect(libraryUi, library);
+        checkOutBook.onSelect(libraryUi, library);
 
         verify(libraryUi, times(1)).handleUnSuccessfulCheckedOut();
     }
@@ -38,6 +38,6 @@ class CheckOutTest {
     @Test
     public void shouldGiveDescription() {
 
-        assertEquals("CheckOut",new CheckOut().description());
+        assertEquals("CheckOut",new CheckOutBook().description());
     }
 }

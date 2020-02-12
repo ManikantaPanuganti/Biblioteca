@@ -8,7 +8,7 @@ public class Menu {
 
     public Menu() {
         menuOptions.add(new ListBooks());
-        menuOptions.add(new CheckOut());
+        menuOptions.add(new CheckOutBook());
         menuOptions.add(new ReturnBook());
     }
 

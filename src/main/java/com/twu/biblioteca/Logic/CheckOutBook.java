@@ -1,6 +1,6 @@
 package com.twu.biblioteca.Logic;
 
-public class CheckOut implements MenuOption {
+public class CheckOutBook implements MenuOption {
     @Override
     public void onSelect(LibraryUI libraryUi, Library library) {
         String book = libraryUi.getBookTitle();
