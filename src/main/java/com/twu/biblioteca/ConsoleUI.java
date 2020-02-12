@@ -14,5 +14,10 @@ public class ConsoleUI implements UI {
         System.out.println("Enter book title");
         return scanner.next();
     }
+
+    @Override
+    public void handleUnSuccessfulCheckedOut() {
+
+    }
 }
 
