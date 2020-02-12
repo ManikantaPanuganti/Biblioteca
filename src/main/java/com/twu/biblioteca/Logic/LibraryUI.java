@@ -12,4 +12,6 @@ public interface LibraryUI {
     void handleSuccessFulReturn();
 
     void handleUnSuccessfulReturn();
+
+    String getMovieTitle();
 }

@@ -1,9 +1,6 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.Logic.Book;
-import com.twu.biblioteca.Logic.Library;
-import com.twu.biblioteca.Logic.Menu;
-import com.twu.biblioteca.Logic.MenuOption;
+import com.twu.biblioteca.Logic.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,14 +23,18 @@ public class Biblioteca {
         Menu menu = new Menu();
         List<MenuOption> menuOptions = menu.getOptions();
         ConsoleLibraryUI consoleUI = new ConsoleLibraryUI();
+        Movie movie = new Movie("Title",2020,"Director",1);
+        ArrayList movies = new ArrayList<String>();
+        movies.add(movie);
+        library.setMovies(movies);
 
         while (true) {
             displayMenu(menuOptions);
             int option = promptOption();
-            if (option < menuOptions.size()) {
+            if (option <= menuOptions.size()) {
                 menuOptions.get(option - 1).onSelect(consoleUI, library);
 
-            } else if (option == menuOptions.size()) {
+            } else if (option == menuOptions.size()+1) {
                 break;
             } else {
                 out.println("Please select a valid option");

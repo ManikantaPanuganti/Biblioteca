@@ -36,5 +36,12 @@ public class ConsoleLibraryUI implements LibraryUI {
     public void handleUnSuccessfulReturn() {
         System.out.println("That is not a valid book to return");
     }
+
+    @Override
+    public String getMovieTitle() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Movie title");
+        return scanner.next();
+    }
 }
 

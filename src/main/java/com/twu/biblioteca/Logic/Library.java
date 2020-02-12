@@ -58,7 +58,7 @@ public class Library {
 
     }
 
-    void setMovies(ArrayList<Movie> movies) {
+    public void setMovies(ArrayList<Movie> movies) {
         this.movies = movies;
     }
 
@@ -76,7 +76,7 @@ public class Library {
         throw new UnknownMovie();
     }
 
-    private Movie getAMovie(String title) throws UnknownMovie {
+    public Movie getAMovie(String title) throws UnknownMovie {
         for (Movie movie : movies) {
             if (movie.getTitle().equals(title)) {
                 return movie;
