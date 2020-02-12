@@ -43,5 +43,10 @@ public class ConsoleLibraryUI implements LibraryUI {
         System.out.println("Enter Movie title");
         return scanner.next();
     }
+
+    @Override
+    public void handleSuccessfulMovieCheckout() {
+        System.out.println("Thank you! Enjoy the Movie");
+    }
 }
 
