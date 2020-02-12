@@ -1,4 +1,4 @@
 package com.twu.biblioteca;
 
-public class UnknownBookException {
+public class UnknownBookException extends Throwable {
 }
