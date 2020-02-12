@@ -5,6 +5,13 @@ public class CheckOutMovie implements MenuOption {
     public void onSelect(LibraryUI libraryUi, Library library) {
         String movie = libraryUi.getMovieTitle();
 
+        try {
+            library.getAMovie(movie);
+            libraryUi.handleSuccessfulMovieCheckout();
+        } catch (UnknownMovie unknownMovie) {
+            libraryUi.handleUnSuccessfulMovieCheckedOut();
+        }
+
     }
 
     @Override
