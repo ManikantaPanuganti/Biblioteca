@@ -10,6 +10,7 @@ public class Menu {
         menuOptions.add(new ListBooks());
         menuOptions.add(new CheckOutBook());
         menuOptions.add(new ReturnBook());
+        menuOptions.add(new ListMovie());
     }
 
     public List<MenuOption> getOptions() {
