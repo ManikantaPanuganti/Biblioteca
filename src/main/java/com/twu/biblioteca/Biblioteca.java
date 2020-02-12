@@ -30,10 +30,10 @@ public class Biblioteca {
         while (true) {
             displayMenu(menuOptions);
             int option = promptOption();
-            if (option <= 3) {
+            if (option < menuOptions.size()) {
                 menuOptions.get(option - 1).onSelect(consoleUI, library);
 
-            } else if (option == 4) {
+            } else if (option == menuOptions.size()) {
                 break;
             } else {
                 out.println("Please select a valid option");
