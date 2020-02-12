@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,10 @@ class LibraryTest {
     @Test
     public void shouldReturnListOfBooks() {
         Book book1 = new Book("Title", "author", 2020);
-        Library library = new Library(List.of(book1));
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+
+        Library library = new Library(books);
 
         assertThat(List.of(book1), is(equalTo(library.getBooks())));
     }
@@ -74,7 +76,17 @@ class LibraryTest {
 
 
         assertThrows(UnknownBook.class, () -> library.checkOut("Title2"));
-
     }
 
+    @Test
+    public void shouldTellIfABookIsCheckedOut() throws UnknownBook {
+        Book book1 = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        Library library = new Library(books);
+
+        library.checkOut("Title");
+
+        assertTrue(library.isCheckedOut("Title"));
+    }
 }

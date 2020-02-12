@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,24 +9,28 @@ import static java.lang.System.out;
 public class Biblioteca {
     Scanner scanner = new Scanner(System.in);
     Library library;
+
     public void start() {
         out.println(welcome());
-        setLibrary(new Library(List.of(new Book("Title","Author",2020))));
+        Book book = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book);
+        setLibrary(new Library(books));
         Menu menu = new Menu();
         List<MenuOption> menuOptions = menu.getOptions();
-        displayMenu(menuOptions);
         ConsoleUI consoleUI = new ConsoleUI();
-        int option = promptOption();
-        while(true)
-        if(option==1){
-            menuOptions.get(option-1).onSelect(consoleUI,library);
-            break;
-        }
-        else if(option==2){
-            System.exit(0);
-        }
-        else{
-            out.println("Please select a valid option");
+
+        while (true) {
+            displayMenu(menuOptions);
+            int option = promptOption();
+            if (option <= 2) {
+                menuOptions.get(option - 1).onSelect(consoleUI, library);
+
+            } else if (option == 3) {
+                break;
+            } else {
+                out.println("Please select a valid option");
+            }
         }
     }
 
@@ -41,6 +46,7 @@ public class Biblioteca {
         out.println("Enter an option ");
         return scanner.nextInt();
     }
+
     String welcome() {
         return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     }

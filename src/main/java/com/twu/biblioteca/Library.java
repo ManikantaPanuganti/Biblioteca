@@ -1,15 +1,16 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Library {
 
-    private final List<Book> books;
+    private ArrayList<Book> books;
     private Map<String,Book> checkOutBooks = new HashMap<>();
 
-    public Library(List<Book> books) {
+    public Library(ArrayList<Book> books) {
         this.books = books;
     }
 
@@ -43,5 +44,8 @@ public class Library {
             return;
         }
         throw new UnknownBook();
+    }
+    boolean isCheckedOut(String title) {
+        return checkOutBooks.containsKey(title);
     }
 }
