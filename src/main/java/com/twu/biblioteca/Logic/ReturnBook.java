@@ -1,4 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Logic;
+
+import com.twu.biblioteca.Logic.Library;
+import com.twu.biblioteca.Logic.MenuOption;
+import com.twu.biblioteca.Logic.UI;
+import com.twu.biblioteca.Logic.UnknownBook;
 
 public class ReturnBook implements MenuOption {
     @Override

@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Logic;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Map;
 public class Library {
 
     private ArrayList<Book> books;
-    private Map<String,Book> checkOutBooks = new HashMap<>();
+    private Map<String, Book> checkOutBooks = new HashMap<>();
 
     public Library(ArrayList<Book> books) {
         this.books = books;
@@ -39,12 +39,13 @@ public class Library {
     void checkOut(String title) throws UnknownBook {
         if (isAvailable(title)) {
             Book book = getABook(title);
-            checkOutBooks.put(title,book);
+            checkOutBooks.put(title, book);
             books.remove(book);
             return;
         }
         throw new UnknownBook();
     }
+
     boolean isCheckedOut(String title) {
         return checkOutBooks.containsKey(title);
     }

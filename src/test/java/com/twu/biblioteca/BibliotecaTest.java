@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Logic.Book;
+import com.twu.biblioteca.Logic.Library;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

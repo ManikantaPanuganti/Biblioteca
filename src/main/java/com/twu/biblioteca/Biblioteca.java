@@ -1,5 +1,10 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Logic.Book;
+import com.twu.biblioteca.Logic.Library;
+import com.twu.biblioteca.Logic.Menu;
+import com.twu.biblioteca.Logic.MenuOption;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

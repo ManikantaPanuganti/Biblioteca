@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Logic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 public class Menu {
     List<MenuOption> menuOptions = new ArrayList<>();
 
-    Menu() {
+    public Menu() {
         menuOptions.add(new ListBooks());
         menuOptions.add(new CheckOut());
         menuOptions.add(new ReturnBook());
     }
 
-    List<MenuOption> getOptions() {
+    public List<MenuOption> getOptions() {
         return menuOptions;
     }
 

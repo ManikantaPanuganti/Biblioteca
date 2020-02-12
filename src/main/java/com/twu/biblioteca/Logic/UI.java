@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Logic;
 
 public interface UI {
     void displayBooks(String book);

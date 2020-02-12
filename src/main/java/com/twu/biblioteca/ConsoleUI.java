@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Logic.UI;
+
 import java.util.Scanner;
 
 public class ConsoleUI implements UI {

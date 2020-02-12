@@ -1,5 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Logic;
 
+import com.twu.biblioteca.Logic.Library;
+import com.twu.biblioteca.Logic.ReturnBook;
+import com.twu.biblioteca.Logic.UI;
+import com.twu.biblioteca.Logic.UnknownBook;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
