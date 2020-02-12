@@ -15,9 +15,10 @@ class ListBooksTest {
         Book book = mock(Book.class);
         when(book.getString()).thenReturn("BOOK");
         ListBooks listBooks = new ListBooks();
-        when(ui.getLibrary()).thenReturn(new Library(List.of(book)));
+        Library library = mock(Library.class);
+        when(library.getBooks()).thenReturn(List.of(book));
 
-        listBooks.onSelect(ui);
+        listBooks.onSelect(ui,library);
 
         verify(ui, times(1)).displayBooks("BOOK");
     }
