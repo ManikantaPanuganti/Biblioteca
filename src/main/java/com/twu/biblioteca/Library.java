@@ -48,4 +48,12 @@ public class Library {
     boolean isCheckedOut(String title) {
         return checkOutBooks.containsKey(title);
     }
+
+    void returnBook(String title) {
+        if (isCheckedOut(title)) {
+            books.add(checkOutBooks.remove(title));
+            return;
+        }
+
+    }
 }

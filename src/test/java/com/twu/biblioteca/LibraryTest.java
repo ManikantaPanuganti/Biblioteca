@@ -89,4 +89,31 @@ class LibraryTest {
 
         assertTrue(library.isCheckedOut("Title"));
     }
+
+    @Test
+    public void shouldReturnFalseIfABookIsNotCheckedOut() throws UnknownBook {
+        Book book1 = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        Library library = new Library(books);
+
+        library.checkOut("Title");
+
+        assertFalse(library.isCheckedOut("Title2"));
+    }
+
+    @Test
+    public void shouldReturnABookWhichIsCheckedOut() throws UnknownBook {
+        Book book1 = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        Library library = new Library(books);
+        library.checkOut("Title");
+
+        library.returnBook("Title");
+
+        assertTrue(library.isAvailable("Title"));
+
+    }
+
 }
