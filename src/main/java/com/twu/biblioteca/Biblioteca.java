@@ -31,6 +31,7 @@ public class Biblioteca {
         for (index = 0; index < options.size(); index++) {
             out.println(1 + index + "." + options.get(index).description());
         }
+        out.println(1 + index + ".Quit");
     }
 
     int promptOption() {
