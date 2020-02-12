@@ -8,8 +8,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
 
@@ -40,7 +39,17 @@ class LibraryTest {
 
         Book book = library.getABook("Title");
 
-        assertThat(book1,is(equalTo(book)));
+        assertThat(book1, is(equalTo(book)));
+    }
+
+    @Test
+    public void shouldThrowExceptionIfBookIsNotThereInTheLibrary() {
+        Book book1 = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        Library library = new Library(books);
+
+        assertThrows(UnknownBook.class, () -> library.getABook("Title2"));
     }
 
 }
