@@ -15,7 +15,9 @@ class ListMovieTest {
         LibraryUI ui = mock(LibraryUI.class);
         Movie movie = mock(Movie.class);
         ListMovie listMovie = new ListMovie();
-        when(library.getMovies()).thenReturn((ArrayList<Movie>) List.of(movie));
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        when(library.getMovies()).thenReturn(movies);
         when(movie.getString()).thenReturn("Movie");
 
         listMovie.onSelect(ui, library);
