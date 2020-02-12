@@ -8,4 +8,8 @@ public interface UI {
     void handleUnSuccessfulCheckedOut();
 
     void handleSuccessfulCheckOut();
+
+    void handleSuccessFulReturn();
+
+    void handleUnSuccessfulReturn();
 }
