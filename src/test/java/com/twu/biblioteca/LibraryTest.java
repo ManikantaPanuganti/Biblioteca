@@ -116,4 +116,15 @@ class LibraryTest {
 
     }
 
+    @Test
+    public void shouldNotReturnABookWhichIsNotCheckedOut() throws UnknownBook {
+        Book book1 = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        Library library = new Library(books);
+        library.checkOut("Title");
+
+        assertThrows(UnknownBook.class, () -> library.returnBook("Title2"));
+    }
+
 }

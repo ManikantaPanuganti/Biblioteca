@@ -49,11 +49,12 @@ public class Library {
         return checkOutBooks.containsKey(title);
     }
 
-    void returnBook(String title) {
+    void returnBook(String title) throws UnknownBook {
         if (isCheckedOut(title)) {
             books.add(checkOutBooks.remove(title));
             return;
         }
+        throw new UnknownBook();
 
     }
 }
