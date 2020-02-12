@@ -1,18 +1,20 @@
 package com.twu.biblioteca;
 
 import java.util.List;
+import java.util.Scanner;
 
 import static java.lang.System.out;
 
 public class Biblioteca {
-
+    Scanner scanner = new Scanner(System.in);
     Library library;
     public void start() {
-        System.out.println(welcome());
+        out.println(welcome());
         setLibrary(new Library(List.of(new Book("Title","Author",2020))));
         Menu menu = new Menu();
         List<MenuOption> menuOptions = menu.getOptions();
         displayMenu(menuOptions);
+
     }
 
     private void displayMenu(List<MenuOption> options) {
@@ -22,6 +24,10 @@ public class Biblioteca {
         }
     }
 
+    int promptOption() {
+        out.println("Enter an option ");
+        return scanner.nextInt();
+    }
     String welcome() {
         return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     }
