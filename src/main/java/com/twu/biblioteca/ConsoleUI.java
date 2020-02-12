@@ -24,5 +24,15 @@ public class ConsoleUI implements UI {
     public void handleSuccessfulCheckOut() {
         System.out.println("Thank you! Enjoy the book");
     }
+
+    @Override
+    public void handleSuccessFulReturn() {
+        System.out.println("Thank you for returning the book");
+    }
+
+    @Override
+    public void handleUnSuccessfulReturn() {
+        System.out.println("That is not a valid book to return");
+    }
 }
 
