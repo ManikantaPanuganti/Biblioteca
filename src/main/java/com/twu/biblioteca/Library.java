@@ -13,4 +13,12 @@ public class Library {
     public List<Book> getBooks() {
         return books;
     }
+    boolean isAvailable(String bookTitle) {
+        for (Book book : books) {
+            if (book.getTitle().equals(bookTitle)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
