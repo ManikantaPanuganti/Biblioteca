@@ -13,6 +13,7 @@ public class Library {
     public List<Book> getBooks() {
         return books;
     }
+
     boolean isAvailable(String bookTitle) {
         for (Book book : books) {
             if (book.getTitle().equals(bookTitle)) {
@@ -20,5 +21,14 @@ public class Library {
             }
         }
         return false;
+    }
+
+    Book getABook(String bookTitle) throws UnknownBook {
+        for (Book book : books) {
+            if (book.getTitle().equals(bookTitle)) {
+                return book;
+            }
+        }
+        throw new UnknownBook();
     }
 }
