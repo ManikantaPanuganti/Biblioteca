@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ListBooksTest {
 
@@ -17,6 +18,14 @@ class ListBooksTest {
 
         listBooks.onSelect(ui);
 
-        verify(ui,times(1)).displayBooks();
+        verify(ui, times(1)).displayBooks();
+    }
+
+    @Test
+    public void shouldEqualTwoSameMenuOptionListBooks() {
+        ListBooks listBooks = new ListBooks();
+        ListBooks listBooks2 = new ListBooks();
+
+        assertEquals(listBooks, listBooks2);
     }
 }

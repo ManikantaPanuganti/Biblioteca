@@ -11,4 +11,10 @@ public class ListBooks implements MenuOption {
     public String description() {
         return "ListBooks";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        MenuOption other = (ListBooks) obj;
+        return description().equals(other.description());
+    }
 }
