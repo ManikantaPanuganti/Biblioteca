@@ -5,5 +5,5 @@ public class ConsoleUI implements UI {
     public void displayBooks(String book) {
         System.out.println(book);
     }
-
 }
+
