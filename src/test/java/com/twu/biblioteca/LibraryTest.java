@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,30 @@ class LibraryTest {
         Library library = new Library(books);
 
         assertThrows(UnknownBook.class, () -> library.getABook("Title2"));
+    }
+
+    @Test
+    public void shouldCheckOutABook() throws UnknownBook {
+        Book book1 = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        Library library = new Library(books);
+
+        library.checkOut("Title");
+
+        assertFalse(library.isAvailable("Title"));
+    }
+
+    @Test
+    public void shouldThrowExceptionIfUnknownBookCheckingOut() {
+        Book book1 = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        Library library = new Library(books);
+
+
+        assertThrows(UnknownBook.class, () -> library.checkOut("Title2"));
+
     }
 
 }
