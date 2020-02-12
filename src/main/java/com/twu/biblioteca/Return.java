@@ -9,7 +9,7 @@ public class Return implements MenuOption {
             ui.handleSuccessFulReturn();
 
         } catch (UnknownBook unknownBook) {
-            unknownBook.printStackTrace();
+            ui.handleUnSuccessfulReturn();
         }
     }
 
