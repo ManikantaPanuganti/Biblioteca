@@ -16,4 +16,8 @@ public class Movie {
     public String getTitle() {
         return title;
     }
+
+    public String getString() {
+        return title + " " + year + " " + director + " " + rating;
+    }
 }
