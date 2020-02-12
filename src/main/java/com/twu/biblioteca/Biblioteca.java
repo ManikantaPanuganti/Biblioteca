@@ -14,7 +14,11 @@ public class Biblioteca {
         Menu menu = new Menu();
         List<MenuOption> menuOptions = menu.getOptions();
         displayMenu(menuOptions);
-
+        ConsoleUI consoleUI = new ConsoleUI();
+        int option = promptOption();
+        if(option==1){
+            menuOptions.get(option-1).onSelect(consoleUI,library);
+        }
     }
 
     private void displayMenu(List<MenuOption> options) {
