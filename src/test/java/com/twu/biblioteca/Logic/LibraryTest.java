@@ -143,4 +143,18 @@ class LibraryTest {
 
     }
 
+    @Test
+    public void checkedMovieShouldNotBeAvailable() throws UnknownMovie {
+        ArrayList<Book> books = new ArrayList<>();
+        Library library = new Library(books);
+        Movie movie = new Movie("Title",2020,"Director",2);
+        ArrayList movies = new ArrayList<Movie>();
+        movies.add(movie);
+        library.setMovies(movies);
+
+        library.checkOutMovie("Title");
+
+        assertFalse(library.isAvailableMovie("Title"));
+    }
+
 }
