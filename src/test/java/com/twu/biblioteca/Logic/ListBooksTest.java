@@ -20,7 +20,7 @@ class ListBooksTest {
 
         listBooks.onSelect(libraryUi,library);
 
-        verify(libraryUi, times(1)).displayBooks("BOOK");
+        verify(libraryUi, times(1)).display("BOOK");
     }
 
     @Test

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ConsoleLibraryUI implements LibraryUI {
     @Override
-    public void displayBooks(String book) {
+    public void display(String book) {
         System.out.println(book);
     }
 

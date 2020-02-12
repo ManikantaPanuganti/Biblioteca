@@ -1,7 +1,7 @@
 package com.twu.biblioteca.Logic;
 
 public interface LibraryUI {
-    void displayBooks(String book);
+    void display(String book);
 
     String getBookTitle();
 

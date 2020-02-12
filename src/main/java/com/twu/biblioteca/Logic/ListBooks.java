@@ -3,7 +3,7 @@ package com.twu.biblioteca.Logic;
 public class ListBooks implements MenuOption {
     @Override
     public void onSelect(LibraryUI libraryUi, Library library) {
-        library.getBooks().forEach(book -> libraryUi.displayBooks(book.getString()));
+        library.getBooks().forEach(book -> libraryUi.display(book.getString()));
     }
 
     @Override
