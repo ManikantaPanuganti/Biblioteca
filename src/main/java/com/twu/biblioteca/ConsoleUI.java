@@ -1,13 +1,9 @@
 package com.twu.biblioteca;
 
-public class consoleUI implements UI {
+public class ConsoleUI implements UI {
     @Override
     public void displayBooks(String book) {
         System.out.println(book);
     }
 
-    @Override
-    public Library getLibrary() {
-        return null;
-    }
 }
