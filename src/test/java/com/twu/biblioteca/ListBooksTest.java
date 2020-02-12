@@ -13,12 +13,13 @@ class ListBooksTest {
     public void shouldDisplayBooks() {
         UI ui = mock(UI.class);
         Book book = mock(Book.class);
+        when(book.getString()).thenReturn("BOOK");
         ListBooks listBooks = new ListBooks();
         when(ui.getLibrary()).thenReturn(new Library(List.of(book)));
 
         listBooks.onSelect(ui);
 
-        verify(ui, times(1)).displayBooks();
+        verify(ui, times(1)).displayBooks("BOOK");
     }
 
     @Test

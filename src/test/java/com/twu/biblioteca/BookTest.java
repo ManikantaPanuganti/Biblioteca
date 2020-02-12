@@ -34,6 +34,6 @@ class BookTest {
     public void shouldReturnPublicationYearOfTheBook() {
         Book book = new Book("Title", "author", 2020);
 
-        assertThat(book.getPublicationYear(), is(equalTo("author")));
+        assertThat(book.getPublicationYear(), is(equalTo(2020)));
     }
 }

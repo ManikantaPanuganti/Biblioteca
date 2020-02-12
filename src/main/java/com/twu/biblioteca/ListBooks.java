@@ -4,7 +4,7 @@ public class ListBooks implements MenuOption {
     @Override
     public void onSelect(UI ui) {
         Library library = ui.getLibrary();
-        library.getBooks().forEach(book -> ui.displayBooks());
+        library.getBooks().forEach(book -> ui.displayBooks(book.getString()));
     }
 
     @Override
