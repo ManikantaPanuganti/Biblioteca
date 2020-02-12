@@ -16,4 +16,6 @@ public interface LibraryUI {
     String getMovieTitle();
 
     void handleSuccessfulMovieCheckout();
+
+    void handleUnSuccessfulMovieCheckedOut();
 }
