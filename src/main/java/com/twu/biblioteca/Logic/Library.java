@@ -84,4 +84,8 @@ public class Library {
         }
         throw new UnknownMovie();
     }
+
+    public ArrayList<Movie> getMovies() {
+        return movies;
+    }
 }
