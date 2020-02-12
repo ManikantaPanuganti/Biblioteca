@@ -16,8 +16,10 @@ public class Biblioteca {
         displayMenu(menuOptions);
         ConsoleUI consoleUI = new ConsoleUI();
         int option = promptOption();
+        while(true)
         if(option==1){
             menuOptions.get(option-1).onSelect(consoleUI,library);
+            break;
         }
         else{
             out.println("Please select a valid option");
