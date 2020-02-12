@@ -17,7 +17,7 @@ public class ConsoleUI implements UI {
 
     @Override
     public void handleUnSuccessfulCheckedOut() {
-
+        System.out.println("Sorry, that book is not available");
     }
 }
 
