@@ -2,8 +2,8 @@ package com.twu.biblioteca.Logic;
 
 public class ListBooks implements MenuOption {
     @Override
-    public void onSelect(UI ui, Library library) {
-        library.getBooks().forEach(book -> ui.displayBooks(book.getString()));
+    public void onSelect(LibraryUI libraryUi, Library library) {
+        library.getBooks().forEach(book -> libraryUi.displayBooks(book.getString()));
     }
 
     @Override

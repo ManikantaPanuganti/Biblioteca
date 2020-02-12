@@ -1,20 +1,15 @@
 package com.twu.biblioteca.Logic;
 
-import com.twu.biblioteca.Logic.Library;
-import com.twu.biblioteca.Logic.MenuOption;
-import com.twu.biblioteca.Logic.UI;
-import com.twu.biblioteca.Logic.UnknownBook;
-
 public class ReturnBook implements MenuOption {
     @Override
-    public void onSelect(UI ui, Library library) {
-        String book =ui.getBookTitle();
+    public void onSelect(LibraryUI libraryUi, Library library) {
+        String book = libraryUi.getBookTitle();
         try {
             library.returnBook(book);
-            ui.handleSuccessFulReturn();
+            libraryUi.handleSuccessFulReturn();
 
         } catch (UnknownBook unknownBook) {
-            ui.handleUnSuccessfulReturn();
+            libraryUi.handleUnSuccessfulReturn();
         }
     }
 

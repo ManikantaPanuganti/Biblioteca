@@ -25,7 +25,7 @@ public class Biblioteca {
         setLibrary(new Library(books));
         Menu menu = new Menu();
         List<MenuOption> menuOptions = menu.getOptions();
-        ConsoleUI consoleUI = new ConsoleUI();
+        ConsoleLibraryUI consoleUI = new ConsoleLibraryUI();
 
         while (true) {
             displayMenu(menuOptions);

@@ -2,14 +2,14 @@ package com.twu.biblioteca.Logic;
 
 public class CheckOut implements MenuOption {
     @Override
-    public void onSelect(UI ui, Library library) {
-        String book = ui.getBookTitle();
+    public void onSelect(LibraryUI libraryUi, Library library) {
+        String book = libraryUi.getBookTitle();
         try {
             library.checkOut(book);
-            ui.handleSuccessfulCheckOut();
+            libraryUi.handleSuccessfulCheckOut();
 
         } catch (UnknownBook unknownBook) {
-            ui.handleUnSuccessfulCheckedOut();
+            libraryUi.handleUnSuccessfulCheckedOut();
         }
     }
 

@@ -1,9 +1,5 @@
 package com.twu.biblioteca.Logic;
 
-import com.twu.biblioteca.Logic.Book;
-import com.twu.biblioteca.Logic.Library;
-import com.twu.biblioteca.Logic.ListBooks;
-import com.twu.biblioteca.Logic.UI;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -15,16 +11,16 @@ class ListBooksTest {
 
     @Test
     public void shouldDisplayBooks() {
-        UI ui = mock(UI.class);
+        LibraryUI libraryUi = mock(LibraryUI.class);
         Book book = mock(Book.class);
         when(book.getString()).thenReturn("BOOK");
         ListBooks listBooks = new ListBooks();
         Library library = mock(Library.class);
         when(library.getBooks()).thenReturn(List.of(book));
 
-        listBooks.onSelect(ui,library);
+        listBooks.onSelect(libraryUi,library);
 
-        verify(ui, times(1)).displayBooks("BOOK");
+        verify(libraryUi, times(1)).displayBooks("BOOK");
     }
 
     @Test

@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.Logic.UI;
+import com.twu.biblioteca.Logic.LibraryUI;
 
 import java.util.Scanner;
 
-public class ConsoleUI implements UI {
+public class ConsoleLibraryUI implements LibraryUI {
     @Override
     public void displayBooks(String book) {
         System.out.println(book);

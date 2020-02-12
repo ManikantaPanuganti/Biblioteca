@@ -9,6 +9,7 @@ public class Library {
 
     private ArrayList<Book> books;
     private Map<String, Book> checkOutBooks = new HashMap<>();
+    private ArrayList<Movie> movies;
 
     public Library(ArrayList<Book> books) {
         this.books = books;
@@ -19,12 +20,9 @@ public class Library {
     }
 
     boolean isAvailable(String bookTitle) {
-        for (Book book : books) {
-            if (book.getTitle().equals(bookTitle)) {
-                return true;
-            }
-        }
-        return false;
+        return books.stream()
+                    .anyMatch(book -> book.getTitle()
+                            .equals(bookTitle));
     }
 
     Book getABook(String bookTitle) throws UnknownBook {
@@ -57,5 +55,13 @@ public class Library {
         }
         throw new UnknownBook();
 
+    }
+
+    void setMovies(ArrayList<Movie> movies) {
+        this.movies = movies;
+    }
+
+    boolean isAvailableMovie(String movieTitle) {
+        return movies.stream().anyMatch(movie -> movie.getTitle().equals(movieTitle));
     }
 }

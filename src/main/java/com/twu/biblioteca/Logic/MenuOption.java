@@ -1,6 +1,6 @@
 package com.twu.biblioteca.Logic;
 
 public interface MenuOption {
-    void onSelect(UI ui, Library library);
+    void onSelect(LibraryUI libraryUi, Library library);
     String description();
 }
