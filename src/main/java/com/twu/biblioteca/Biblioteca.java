@@ -24,8 +24,10 @@ public class Biblioteca {
         List<MenuOption> menuOptions = menu.getOptions();
         ConsoleLibraryUI consoleUI = new ConsoleLibraryUI();
         Movie movie = new Movie("Title",2020,"Director",1);
+        Movie movie2 = new Movie("Title",2020,"Director",1);
         ArrayList movies = new ArrayList<String>();
         movies.add(movie);
+        movies.add(movie2);
         library.setMovies(movies);
 
         while (true) {

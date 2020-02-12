@@ -6,7 +6,7 @@ public class CheckOutMovie implements MenuOption {
         String movie = libraryUi.getMovieTitle();
 
         try {
-            library.getAMovie(movie);
+            library.checkOutMovie(movie);
             libraryUi.handleSuccessfulMovieCheckout();
         } catch (UnknownMovie unknownMovie) {
             libraryUi.handleUnSuccessfulMovieCheckedOut();
@@ -16,6 +16,6 @@ public class CheckOutMovie implements MenuOption {
 
     @Override
     public String description() {
-        return null;
+        return "Check out Movie";
     }
 }

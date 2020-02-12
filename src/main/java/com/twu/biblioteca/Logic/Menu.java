@@ -11,6 +11,7 @@ public class Menu {
         menuOptions.add(new CheckOutBook());
         menuOptions.add(new ReturnBook());
         menuOptions.add(new ListMovie());
+        menuOptions.add(new CheckOutMovie());
     }
 
     public List<MenuOption> getOptions() {
