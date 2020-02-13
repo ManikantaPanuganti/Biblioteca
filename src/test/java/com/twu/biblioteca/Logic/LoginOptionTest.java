@@ -11,5 +11,4 @@ class LoginOptionTest {
 
         assertEquals("Login",loginOption.description());
     }
-
 }

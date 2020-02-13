@@ -53,5 +53,27 @@ public class ConsoleLibraryUI implements LibraryUI {
     public void handleUnSuccessfulMovieCheckedOut() {
         System.out.println("Sorry that movie is not there");
     }
+
+    @Override
+    public String getUserName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter user name:");
+        return scanner.next();
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
+
+    @Override
+    public void handleSuccessfulLogin() {
+
+    }
+
+    @Override
+    public void handleUnSuccessfulLogin() {
+
+    }
 }
 
