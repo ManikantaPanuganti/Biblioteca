@@ -63,7 +63,9 @@ public class ConsoleLibraryUI implements LibraryUI {
 
     @Override
     public String getPassword() {
-        return null;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter password:");
+        return scanner.next();
     }
 
     @Override
