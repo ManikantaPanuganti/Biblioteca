@@ -34,6 +34,7 @@ public class Biblioteca {
 
             if (isLoggedIn(consoleUI)) {
                 menuOptions.remove(0);
+                menuOptions.add(5,new LogOutOption());
             }
             displayMenu(menuOptions);
             int option = promptOption();
