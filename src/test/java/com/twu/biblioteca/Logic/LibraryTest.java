@@ -133,7 +133,7 @@ class LibraryTest {
     public void shouldCheckIfAMovieIsAvailable() {
         ArrayList<Book> books = new ArrayList<>();
         Movie movie = mock(Movie.class);
-        ArrayList movies = new ArrayList<Movie>();
+        ArrayList<Movie> movies = new ArrayList<>();
         movies.add(movie);
         when(movie.getTitle()).thenReturn("Title");
         Library library = new Library(books);
@@ -148,7 +148,7 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         Library library = new Library(books);
         Movie movie = new Movie("Title",2020,"Director",2);
-        ArrayList movies = new ArrayList<Movie>();
+        ArrayList<Movie> movies = new ArrayList<>();
         movies.add(movie);
         library.setMovies(movies);
 
