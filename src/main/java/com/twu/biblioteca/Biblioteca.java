@@ -31,11 +31,9 @@ public class Biblioteca {
         library.setMovies(movies);
 
         while (true) {
-
             if (isLoggedIn(consoleUI)) {
                 menuOptions = new UserMenu().getOptions();
-            }
-            else{
+            } else {
                 menuOptions = menu.getOptions();
             }
             displayMenu(menuOptions);

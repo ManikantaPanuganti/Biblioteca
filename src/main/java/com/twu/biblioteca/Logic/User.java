@@ -12,7 +12,4 @@ public class User {
         return name;
     }
 
-    public boolean isAdmin() {
-        return name.equals("Admin");
-    }
 }
