@@ -18,4 +18,6 @@ public interface LibraryUI {
     void handleSuccessfulMovieCheckout();
 
     void handleUnSuccessfulMovieCheckedOut();
+
+    String getUserName();
 }
