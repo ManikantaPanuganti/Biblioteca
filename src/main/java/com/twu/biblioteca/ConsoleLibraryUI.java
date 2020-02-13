@@ -85,7 +85,20 @@ public class ConsoleLibraryUI implements LibraryUI {
     public void setLogin(Login login) {
         this.login = login;
     }
-    boolean isLoggedIn(){
-        return login.isValid();
+
+    @Override
+    public void logOut() {
+        login.setValid(false);
+        login = null;
+    }
+
+    boolean isLoggedIn() {
+        boolean value;
+        try {
+            value = login.isValid();
+        } catch (Exception e) {
+            value = false;
+        }
+        return value;
     }
 }

@@ -15,4 +15,8 @@ public class Login {
     public boolean isValid() {
         return valid;
     }
+
+    public void setValid(boolean valid){
+        this.valid = valid;
+    }
 }
