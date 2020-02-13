@@ -70,7 +70,7 @@ public class ConsoleLibraryUI implements LibraryUI {
 
     @Override
     public void handleSuccessfulLogin() {
-
+        System.out.println("Successfully logged in");
     }
 
     @Override
