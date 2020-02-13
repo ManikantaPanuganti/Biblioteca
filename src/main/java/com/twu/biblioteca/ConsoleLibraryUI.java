@@ -1,10 +1,13 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.Logic.LibraryUI;
+import com.twu.biblioteca.Logic.Login;
 
 import java.util.Scanner;
 
 public class ConsoleLibraryUI implements LibraryUI {
+    Login login;
+
     @Override
     public void display(String book) {
         System.out.println(book);
@@ -77,5 +80,12 @@ public class ConsoleLibraryUI implements LibraryUI {
     public void handleUnSuccessfulLogin() {
         System.out.println("Sorry! Username or Password is wrong");
     }
-}
 
+    @Override
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+    boolean isLoggedIn(){
+        return login.isValid();
+    }
+}

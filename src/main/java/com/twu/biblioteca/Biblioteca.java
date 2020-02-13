@@ -23,20 +23,24 @@ public class Biblioteca {
         Menu menu = new Menu();
         List<MenuOption> menuOptions = menu.getOptions();
         ConsoleLibraryUI consoleUI = new ConsoleLibraryUI();
-        Movie movie = new Movie("Title",2020,"Director",1);
-        Movie movie2 = new Movie("Title",2020,"Director",1);
-        ArrayList movies = new ArrayList<String>();
+        Movie movie = new Movie("Title", 2020, "Director", 1);
+        Movie movie2 = new Movie("Title", 2020, "Director", 1);
+        ArrayList<Movie> movies = new ArrayList<>();
         movies.add(movie);
         movies.add(movie2);
         library.setMovies(movies);
 
         while (true) {
+
+            if (isLoggedIn(consoleUI)) {
+                menuOptions.remove(0);
+            }
             displayMenu(menuOptions);
             int option = promptOption();
             if (option <= menuOptions.size()) {
                 menuOptions.get(option - 1).onSelect(consoleUI, library);
 
-            } else if (option == menuOptions.size()+1) {
+            } else if (option == menuOptions.size() + 1) {
                 break;
             } else {
                 out.println("Please select a valid option");
@@ -67,5 +71,9 @@ public class Biblioteca {
 
     void showBooks() {
         library.getBooks().stream().map(Book::getString).forEach(System.out::println);
+    }
+
+    boolean isLoggedIn(ConsoleLibraryUI ui) {
+        return ui.isLoggedIn();
     }
 }

@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Logic;
 
 public interface LibraryUI {
+
     void display(String book);
 
     String getBookTitle();
@@ -26,4 +27,6 @@ public interface LibraryUI {
     void handleSuccessfulLogin();
 
     void handleUnSuccessfulLogin();
+
+    void setLogin(Login login);
 }
