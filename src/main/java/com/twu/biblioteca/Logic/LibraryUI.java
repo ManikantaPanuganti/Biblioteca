@@ -20,4 +20,10 @@ public interface LibraryUI {
     void handleUnSuccessfulMovieCheckedOut();
 
     String getUserName();
+
+    String getPassword();
+
+    void handleSuccessfulLogin();
+
+    void handleUnSuccessfulLogin();
 }

@@ -7,6 +7,7 @@ public class Menu {
     List<MenuOption> menuOptions = new ArrayList<>();
 
     public Menu() {
+        menuOptions.add(new LoginOption());
         menuOptions.add(new ListBooks());
         menuOptions.add(new CheckOutBook());
         menuOptions.add(new ReturnBook());
@@ -16,6 +17,10 @@ public class Menu {
 
     public List<MenuOption> getOptions() {
         return menuOptions;
+    }
+
+    public void remove(MenuOption option) {
+        menuOptions.remove(option);
     }
 
 }
