@@ -1,12 +1,13 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.Logic.LibraryUI;
-import com.twu.biblioteca.Logic.Login;
+import com.twu.biblioteca.Logic.LoginManager;
+import com.twu.biblioteca.Logic.User;
 
 import java.util.Scanner;
 
 public class ConsoleLibraryUI implements LibraryUI {
-    Login login;
+    LoginManager loginManager;
 
     @Override
     public void display(String book) {
@@ -82,20 +83,25 @@ public class ConsoleLibraryUI implements LibraryUI {
     }
 
     @Override
-    public void setLogin(Login login) {
-        this.login = login;
+    public void setLoginManager(LoginManager loginManager) {
+        this.loginManager = loginManager;
     }
 
     @Override
     public void logOut() {
-        login.setValid(false);
-        login = null;
+        loginManager.setValid(false);
+        loginManager = null;
+    }
+
+    @Override
+    public User getUser() {
+        return loginManager.getUser();
     }
 
     boolean isLoggedIn() {
         boolean value;
         try {
-            value = login.isValid();
+            value = loginManager.isValid();
         } catch (Exception e) {
             value = false;
         }
