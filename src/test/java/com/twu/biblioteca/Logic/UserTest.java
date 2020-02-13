@@ -12,4 +12,11 @@ class UserTest {
 
         assertEquals("Name",name.getName());
     }
+
+    @Test
+    public void shouldReturnTrueIfTheUserIsAdmin() {
+        User user = new User("Admin");
+
+        assertTrue(user.isAdmin());
+    }
 }

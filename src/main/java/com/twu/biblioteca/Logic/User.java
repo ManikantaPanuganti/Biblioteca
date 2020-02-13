@@ -11,4 +11,8 @@ public class User {
     public String getName() {
         return name;
     }
+
+    public boolean isAdmin() {
+        return name.equals("Admin");
+    }
 }
