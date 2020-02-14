@@ -1,10 +1,10 @@
 package com.twu.biblioteca.Logic;
 
-public class Login {
+public class LoginManager {
     private final User user;
     private boolean valid;
 
-    public Login(User user) {
+    public LoginManager(User user) {
         this.user = user;
     }
 
@@ -18,5 +18,9 @@ public class Login {
 
     public void setValid(boolean valid){
         this.valid = valid;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

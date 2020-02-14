@@ -1,9 +1,8 @@
 package com.twu.biblioteca.Logic;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static java.util.List.*;
 
 public class Library {
 
@@ -11,6 +10,8 @@ public class Library {
     private Map<String, Book> checkOutBooks = new HashMap<>();
     private ArrayList<Movie> movies;
     private Map<String, Movie> checkedOutMovies = new HashMap<>();
+
+    private Map<User, ArrayList<Book>> checkedOutBooksUsers = new HashMap<>();
 
     public Library(ArrayList<Book> books) {
         this.books = books;
@@ -35,10 +36,17 @@ public class Library {
         throw new UnknownBook();
     }
 
-    void checkOut(String title) throws UnknownBook {
+    void checkOut(String title, User user) throws UnknownBook {
         if (isAvailable(title)) {
             Book book = getABook(title);
-            checkOutBooks.put(title, book);
+            if (checkedOutBooksUsers.containsKey(user)) {
+                ArrayList<Book> bookList = new ArrayList<>();
+                bookList = checkedOutBooksUsers.get(user);
+                bookList.add(book);
+                checkedOutBooksUsers.put(user, bookList);
+                return;
+            }
+            checkedOutBooksUsers.put(user, (ArrayList<Book>) of(book));
             books.remove(book);
             return;
         }
@@ -46,7 +54,15 @@ public class Library {
     }
 
     boolean isCheckedOut(String title) {
-        return checkOutBooks.containsKey(title);
+
+        Collection<ArrayList<Book>> arrayListsOfBooks = checkedOutBooksUsers.values();
+        arrayListsOfBooks.forEach(booksList -> booksList.stream().anyMatch(book -> book.getTitle().equals(title)));
+        for (ArrayList<Book> list : arrayListsOfBooks) {
+            if(list.stream().anyMatch(book -> book.getTitle().equals(title))){
+                return true;
+            }
+        }
+        return false;
     }
 
     void returnBook(String title) throws UnknownBook {

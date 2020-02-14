@@ -5,16 +5,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
-class LoginTest {
+class LoginManagerTest {
 
     @Test
     public void shouldTellIfAUserIsLoggedInWithValidCredentials() {
         User user = mock(User.class);
-        Login login = new Login(user);
+        LoginManager loginManager = new LoginManager(user);
 
-        login.valid("password");
+        loginManager.valid("password");
 
-        assertTrue(login.isValid());
+        assertTrue(loginManager.isValid());
 
     }
 }

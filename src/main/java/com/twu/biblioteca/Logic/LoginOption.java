@@ -6,12 +6,12 @@ public class LoginOption implements MenuOption {
     public void onSelect(LibraryUI libraryUi, Library library) {
             String userName = libraryUi.getUserName();
             String password = libraryUi.getPassword();
-            Login login;
-            login = new Login(new User(userName));
-            login.valid(password);
-            if(login.isValid()) {
+            LoginManager loginManager;
+            loginManager = new LoginManager(new User(userName));
+            loginManager.valid(password);
+            if(loginManager.isValid()) {
                 libraryUi.handleSuccessfulLogin();
-                libraryUi.setLogin(login);
+                libraryUi.setLoginManager(loginManager);
             }
             else{
                 libraryUi.handleUnSuccessfulLogin();

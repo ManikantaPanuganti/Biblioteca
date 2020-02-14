@@ -5,7 +5,7 @@ public class CheckOutBook implements MenuOption {
     public void onSelect(LibraryUI libraryUi, Library library) {
         String book = libraryUi.getBookTitle();
         try {
-            library.checkOut(book);
+            library.checkOut(book, new User(""));
             libraryUi.handleSuccessfulCheckOut();
 
         } catch (UnknownBook unknownBook) {

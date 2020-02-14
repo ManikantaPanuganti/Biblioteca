@@ -13,7 +13,7 @@ class CheckOutBookTest {
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
         CheckOutBook checkOutBook = new CheckOutBook();
-        doNothing().when(library).checkOut("BOOK");
+        doNothing().when(library).checkOut("BOOK", new User(""));
 
 
         checkOutBook.onSelect(libraryUi, library);
@@ -27,7 +27,7 @@ class CheckOutBookTest {
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
         CheckOutBook checkOutBook = new CheckOutBook();
-        doThrow(UnknownBook.class).when(library).checkOut("BOOK");
+        doThrow(UnknownBook.class).when(library).checkOut("BOOK", new User(""));
 
 
         checkOutBook.onSelect(libraryUi, library);

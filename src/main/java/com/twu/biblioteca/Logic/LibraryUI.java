@@ -28,7 +28,9 @@ public interface LibraryUI {
 
     void handleUnSuccessfulLogin();
 
-    void setLogin(Login login);
+    void setLoginManager(LoginManager loginManager);
 
     void logOut();
+
+    User getUser();
 }

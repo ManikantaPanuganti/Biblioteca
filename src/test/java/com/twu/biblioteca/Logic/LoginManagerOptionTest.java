@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LoginOptionTest {
+class LoginManagerOptionTest {
     @Test
     public void shouldReturnDescription() {
         LoginOption loginOption = new  LoginOption();
