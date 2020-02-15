@@ -98,7 +98,8 @@ public class ConsoleLibraryUI implements LibraryUI {
         return loginManager.getUser();
     }
 
-    boolean isLoggedIn() {
+    @Override
+    public boolean isLoggedIn() {
         boolean value;
         try {
             value = loginManager.isValid();
@@ -107,6 +108,7 @@ public class ConsoleLibraryUI implements LibraryUI {
         }
         return value;
     }
+
     boolean isAdmin() {
         return loginManager.isAdmin();
     }

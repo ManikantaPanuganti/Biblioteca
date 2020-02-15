@@ -3,7 +3,7 @@ package com.twu.biblioteca.Logic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminMenu  {
+public class AdminMenu {
     List<MenuOption> menuOptions = new ArrayList<>();
 
     public AdminMenu() {

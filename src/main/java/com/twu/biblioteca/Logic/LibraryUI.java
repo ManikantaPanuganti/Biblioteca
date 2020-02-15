@@ -33,4 +33,6 @@ public interface LibraryUI {
     void logOut();
 
     User getUser();
+
+    boolean isLoggedIn();
 }

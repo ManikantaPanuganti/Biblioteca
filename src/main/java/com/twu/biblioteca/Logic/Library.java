@@ -53,13 +53,12 @@ public class Library {
     }
 
     boolean isCheckedOut(String title, User user) {
-        if(checkedOutBooksUsers.containsKey(user)) {
+        if (checkedOutBooksUsers.containsKey(user)) {
             ArrayList<Book> booksList = checkedOutBooksUsers.get(user);
             return booksList.stream().anyMatch(book -> book.getTitle().equals(title));
         }
         return false;
     }
-
 
 
     void returnBook(String title, User user) throws UnknownBook {
