@@ -104,4 +104,7 @@ public class Library {
         return movies;
     }
 
+    public Map<User, ArrayList<Book>> getCheckedOutBooks() {
+        return checkedOutBooksUsers;
+    }
 }
