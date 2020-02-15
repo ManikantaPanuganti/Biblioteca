@@ -23,4 +23,8 @@ public class LoginManager {
     public User getUser() {
         return user;
     }
+    public boolean isAdmin() {
+        return user.getName().equals("Admin");
+
+    }
 }

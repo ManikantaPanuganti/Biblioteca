@@ -107,4 +107,7 @@ public class ConsoleLibraryUI implements LibraryUI {
         }
         return value;
     }
+    boolean isAdmin() {
+
+    }
 }

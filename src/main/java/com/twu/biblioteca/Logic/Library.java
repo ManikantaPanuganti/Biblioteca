@@ -55,22 +55,18 @@ public class Library {
     }
 
     boolean isCheckedOut(String title, User user) {
-
-        Collection<ArrayList<Book>> arrayListsOfBooks = checkedOutBooksUsers.values();
-        arrayListsOfBooks.forEach(booksList -> booksList.stream().anyMatch(book -> book.getTitle().equals(title)));
-        for (ArrayList<Book> list : arrayListsOfBooks) {
-            if(list.stream().anyMatch(book -> book.getTitle().equals(title))){
-                System.out.println("IsChecked out true");
-                return true;
-            }
+        if(checkedOutBooksUsers.containsKey(user)) {
+            ArrayList<Book> booksList = checkedOutBooksUsers.get(user);
+            return booksList.stream().anyMatch(book -> book.getTitle().equals(title));
         }
-        System.out.println("Is checked oit false");
         return false;
     }
 
+
+
     void returnBook(String title, User user) throws UnknownBook {
         if (isCheckedOut(title, user)) {
-            books.add(checkOutBooks.remove(title));
+            ArrayList<Book> booksList = checkedOutBooksUsers.get(user);
             return;
         }
         throw new UnknownBook();
