@@ -26,7 +26,9 @@ class BibliotecaTest {
     public void shouldDisplayAListOfBooks() {
         biblioteca = new Biblioteca();
         Library library = mock(Library.class);
-        when(library.getBooks()).thenReturn((ArrayList<Book>) List.of(mock(Book.class)));
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(mock(Book.class));
+        when(library.getBooks()).thenReturn(books);
         biblioteca.setLibrary(library);
 
         biblioteca.showBooks();

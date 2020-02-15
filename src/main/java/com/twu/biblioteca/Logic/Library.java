@@ -1,10 +1,8 @@
 package com.twu.biblioteca.Logic;
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class Library {
 
@@ -67,6 +65,16 @@ public class Library {
     void returnBook(String title, User user) throws UnknownBook {
         if (isCheckedOut(title, user)) {
             ArrayList<Book> booksList = checkedOutBooksUsers.get(user);
+            Optional<Book> found = Optional.empty();
+            for (Book book : booksList) {
+                if (book.getTitle().equals(title)) {
+                    found = Optional.of(book);
+                    break;
+                }
+            }
+            Book book1 = found.get();
+            booksList.remove(book1);
+            books.add(book1);
             return;
         }
         throw new UnknownBook();

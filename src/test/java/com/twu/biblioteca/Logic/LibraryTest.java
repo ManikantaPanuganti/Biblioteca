@@ -87,7 +87,7 @@ class LibraryTest {
         books.add(book1);
         Library library = new Library(books);
 
-        library.checkOut("Title", new User(""));
+        library.checkOut("Title", new User("User"));
 
         assertTrue(library.isCheckedOut("Title", new User("User")));
     }

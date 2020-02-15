@@ -27,7 +27,7 @@ class ReturnBookTest {
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
         ReturnBook returnBook = new ReturnBook();
-        doThrow(UnknownBook.class).when(library).returnBook("BOOK", new User(""));
+        doThrow(UnknownBook.class).when(library).returnBook("BOOK", new User("User"));
 
         returnBook.onSelect(libraryUi, library);
 

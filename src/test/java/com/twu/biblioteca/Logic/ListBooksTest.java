@@ -17,7 +17,9 @@ class ListBooksTest {
         when(book.getString()).thenReturn("BOOK");
         ListBooks listBooks = new ListBooks();
         Library library = mock(Library.class);
-        when(library.getBooks()).thenReturn((ArrayList<Book>) List.of(book));
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book);
+        when(library.getBooks()).thenReturn(books);
 
         listBooks.onSelect(libraryUi,library);
 

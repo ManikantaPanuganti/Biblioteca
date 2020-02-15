@@ -27,7 +27,8 @@ class CheckOutBookTest {
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
         CheckOutBook checkOutBook = new CheckOutBook();
-        doThrow(UnknownBook.class).when(library).checkOut("BOOK", new User(""));
+        when(libraryUi.getUser()).thenReturn(new User("User"));
+        doThrow(UnknownBook.class).when(library).checkOut("BOOK", new User("User"));
 
 
         checkOutBook.onSelect(libraryUi, library);
