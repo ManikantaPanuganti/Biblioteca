@@ -14,7 +14,7 @@ class ReturnBookTest {
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
         ReturnBook returnBook = new ReturnBook();
-        doNothing().when(library).returnBook("BOOK");
+        doNothing().when(library).returnBook("BOOK", new User(""));
 
         returnBook.onSelect(libraryUi, library);
 
@@ -27,7 +27,7 @@ class ReturnBookTest {
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
         ReturnBook returnBook = new ReturnBook();
-        doThrow(UnknownBook.class).when(library).returnBook("BOOK");
+        doThrow(UnknownBook.class).when(library).returnBook("BOOK", new User(""));
 
         returnBook.onSelect(libraryUi, library);
 

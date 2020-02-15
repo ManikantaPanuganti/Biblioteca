@@ -89,7 +89,7 @@ class LibraryTest {
 
         library.checkOut("Title", new User(""));
 
-        assertTrue(library.isCheckedOut("Title"));
+        assertTrue(library.isCheckedOut("Title", new User("User")));
     }
 
     @Test
@@ -101,7 +101,7 @@ class LibraryTest {
 
         library.checkOut("Title", new User(""));
 
-        assertFalse(library.isCheckedOut("Title2"));
+        assertFalse(library.isCheckedOut("Title2", new User("User")));
     }
 
     @Test
@@ -112,7 +112,7 @@ class LibraryTest {
         Library library = new Library(books);
         library.checkOut("Title", new User(""));
 
-        library.returnBook("Title");
+        library.returnBook("Title", new User(""));
 
         assertTrue(library.isAvailable("Title"));
 
@@ -126,7 +126,7 @@ class LibraryTest {
         Library library = new Library(books);
         library.checkOut("Title", new User(""));
 
-        assertThrows(UnknownBook.class, () -> library.returnBook("Title2"));
+        assertThrows(UnknownBook.class, () -> library.returnBook("Title2", new User("")));
     }
 
     @Test

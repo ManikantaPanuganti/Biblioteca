@@ -2,6 +2,7 @@ package com.twu.biblioteca.Logic;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -16,7 +17,7 @@ class ListBooksTest {
         when(book.getString()).thenReturn("BOOK");
         ListBooks listBooks = new ListBooks();
         Library library = mock(Library.class);
-        when(library.getBooks()).thenReturn(List.of(book));
+        when(library.getBooks()).thenReturn((ArrayList<Book>) List.of(book));
 
         listBooks.onSelect(libraryUi,library);
 

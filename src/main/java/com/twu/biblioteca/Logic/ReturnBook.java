@@ -5,7 +5,7 @@ public class ReturnBook implements MenuOption {
     public void onSelect(LibraryUI libraryUi, Library library) {
         String book = libraryUi.getBookTitle();
         try {
-            library.returnBook(book);
+            library.returnBook(book, new User(""));
             libraryUi.handleSuccessFulReturn();
 
         } catch (UnknownBook unknownBook) {

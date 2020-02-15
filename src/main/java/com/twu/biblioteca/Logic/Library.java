@@ -1,13 +1,14 @@
 package com.twu.biblioteca.Logic;
 
-import java.util.*;
 
-import static java.util.List.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Library {
 
     private ArrayList<Book> books;
-    private Map<String, Book> checkOutBooks = new HashMap<>();
     private ArrayList<Movie> movies;
     private Map<String, Movie> checkedOutMovies = new HashMap<>();
 
@@ -17,14 +18,13 @@ public class Library {
         this.books = books;
     }
 
-    public List<Book> getBooks() {
+    public ArrayList<Book> getBooks() {
         return books;
     }
 
     boolean isAvailable(String bookTitle) {
-        return books.stream()
-                .anyMatch(book -> book.getTitle()
-                        .equals(bookTitle));
+        if (books.stream().anyMatch(book -> book.getTitle().equals(bookTitle))) return true;
+        else return false;
     }
 
     Book getABook(String bookTitle) throws UnknownBook {
@@ -39,34 +39,37 @@ public class Library {
     void checkOut(String title, User user) throws UnknownBook {
         if (isAvailable(title)) {
             Book book = getABook(title);
+            ArrayList<Book> bookList = new ArrayList<>();
             if (checkedOutBooksUsers.containsKey(user)) {
-                ArrayList<Book> bookList = new ArrayList<>();
                 bookList = checkedOutBooksUsers.get(user);
                 bookList.add(book);
                 checkedOutBooksUsers.put(user, bookList);
                 return;
             }
-            checkedOutBooksUsers.put(user, (ArrayList<Book>) of(book));
+            bookList.add(book);
+            checkedOutBooksUsers.put(user, bookList);
             books.remove(book);
             return;
         }
         throw new UnknownBook();
     }
 
-    boolean isCheckedOut(String title) {
+    boolean isCheckedOut(String title, User user) {
 
         Collection<ArrayList<Book>> arrayListsOfBooks = checkedOutBooksUsers.values();
         arrayListsOfBooks.forEach(booksList -> booksList.stream().anyMatch(book -> book.getTitle().equals(title)));
         for (ArrayList<Book> list : arrayListsOfBooks) {
             if(list.stream().anyMatch(book -> book.getTitle().equals(title))){
+                System.out.println("IsChecked out true");
                 return true;
             }
         }
+        System.out.println("Is checked oit false");
         return false;
     }
 
-    void returnBook(String title) throws UnknownBook {
-        if (isCheckedOut(title)) {
+    void returnBook(String title, User user) throws UnknownBook {
+        if (isCheckedOut(title, user)) {
             books.add(checkOutBooks.remove(title));
             return;
         }

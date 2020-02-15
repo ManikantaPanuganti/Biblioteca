@@ -4,6 +4,7 @@ import com.twu.biblioteca.Logic.Book;
 import com.twu.biblioteca.Logic.Library;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +26,7 @@ class BibliotecaTest {
     public void shouldDisplayAListOfBooks() {
         biblioteca = new Biblioteca();
         Library library = mock(Library.class);
-        when(library.getBooks()).thenReturn(List.of(mock(Book.class)));
+        when(library.getBooks()).thenReturn((ArrayList<Book>) List.of(mock(Book.class)));
         biblioteca.setLibrary(library);
 
         biblioteca.showBooks();
