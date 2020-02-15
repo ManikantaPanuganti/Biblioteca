@@ -16,15 +16,15 @@ public class LoginManager {
         return valid;
     }
 
-    public void setValid(boolean valid){
+    public void setValid(boolean valid) {
         this.valid = valid;
     }
 
     public User getUser() {
         return user;
     }
+
     public boolean isAdmin() {
         return user.getName().equals("Admin");
-
     }
 }
