@@ -13,8 +13,11 @@ class ReturnBookTest {
         LibraryUI libraryUi = mock(LibraryUI.class);
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
+        when(libraryUi.isLoggedIn()).thenReturn(true);
         ReturnBook returnBook = new ReturnBook();
-        doNothing().when(library).returnBook("BOOK", new User(""));
+        when(libraryUi.getUser()).thenReturn(new User("User"));
+        doNothing().when(libraryUi).loginMessage();
+        doNothing().when(library).returnBook("BOOK", new User("User"));
 
         returnBook.onSelect(libraryUi, library);
 
@@ -27,6 +30,9 @@ class ReturnBookTest {
         when(libraryUi.getBookTitle()).thenReturn("BOOK");
         Library library = mock(Library.class);
         ReturnBook returnBook = new ReturnBook();
+        when(libraryUi.isLoggedIn()).thenReturn(true);
+        when(libraryUi.getUser()).thenReturn(new User("User"));
+        doNothing().when(libraryUi).loginMessage();
         doThrow(UnknownBook.class).when(library).returnBook("BOOK", new User("User"));
 
         returnBook.onSelect(libraryUi, library);
@@ -37,7 +43,6 @@ class ReturnBookTest {
 
     @Test
     public void shouldGiveDescription() {
-
         assertEquals("Return Book",new ReturnBook().description());
     }
 }

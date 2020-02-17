@@ -3,8 +3,8 @@ package com.twu.biblioteca.Logic;
 public class CheckOutBook implements MenuOption {
     @Override
     public void onSelect(LibraryUI libraryUi, Library library) {
-        if (libraryUi.isLoggedIn()) {
-            libraryUi.display("Please login first");
+        if (!libraryUi.isLoggedIn()) {
+            libraryUi.loginMessage();
             return;
         }
 

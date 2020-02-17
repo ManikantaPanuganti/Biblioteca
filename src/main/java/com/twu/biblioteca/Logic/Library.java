@@ -2,13 +2,12 @@ package com.twu.biblioteca.Logic;
 
 
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Library {
 
     private ArrayList<Book> books;
     private ArrayList<Movie> movies;
-    private Map<String, Movie> checkedOutMovies = new HashMap<>();
+    private Map<User, ArrayList<Movie>> checkedOutMovies = new HashMap<>();
 
     private Map<User, ArrayList<Book>> checkedOutBooksUsers = new HashMap<>();
 
@@ -21,8 +20,7 @@ public class Library {
     }
 
     boolean isAvailable(String bookTitle) {
-        if (books.stream().anyMatch(book -> book.getTitle().equals(bookTitle))) return true;
-        else return false;
+        return books.stream().anyMatch(book -> book.getTitle().equals(bookTitle));
     }
 
     Book getABook(String bookTitle) throws UnknownBook {
@@ -42,6 +40,7 @@ public class Library {
                 bookList = checkedOutBooksUsers.get(user);
                 bookList.add(book);
                 checkedOutBooksUsers.put(user, bookList);
+                books.remove(book);
                 return;
             }
             bookList.add(book);
@@ -50,6 +49,25 @@ public class Library {
             return;
         }
         throw new UnknownBook();
+    }
+
+    void checkOutMovie(String title, User user) throws UnknownMovie {
+        if (isAvailableMovie(title)) {
+            Movie movie = getAMovie(title);
+            ArrayList<Movie> movieList = new ArrayList<>();
+            if (checkedOutMovies.containsKey(user)) {
+                movieList = checkedOutMovies.get(user);
+                movieList.add(movie);
+                checkedOutMovies.put(user, movieList);
+                movies.remove(movie);
+                return;
+            }
+            movieList.add(movie);
+            checkedOutMovies.put(user, movieList);
+            movies.remove(movie);
+            return;
+        }
+        throw new UnknownMovie();
     }
 
     boolean isCheckedOut(String title, User user) {
@@ -86,16 +104,6 @@ public class Library {
 
     boolean isAvailableMovie(String movieTitle) {
         return movies.stream().anyMatch(movie -> movie.getTitle().equals(movieTitle));
-    }
-
-    void checkOutMovie(String title) throws UnknownMovie {
-        if (isAvailableMovie(title)) {
-            Movie movie = getAMovie(title);
-            checkedOutMovies.put(title, movie);
-            movies.remove(movie);
-            return;
-        }
-        throw new UnknownMovie();
     }
 
     public Movie getAMovie(String title) throws UnknownMovie {

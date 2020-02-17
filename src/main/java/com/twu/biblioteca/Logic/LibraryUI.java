@@ -35,4 +35,6 @@ public interface LibraryUI {
     User getUser();
 
     boolean isLoggedIn();
+
+    void loginMessage();
 }

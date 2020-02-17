@@ -81,6 +81,21 @@ class LibraryTest {
     }
 
     @Test
+    public void shouldThrowExceptionIfUnknownMovieCheckingOut() {
+        Book book1 = new Book("Title", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        Movie movie = new Movie("Title",2020,"Director",1);
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        Library library = new Library(books);
+        library.setMovies(movies);
+
+
+        assertThrows(UnknownMovie.class, () -> library.checkOutMovie("Title2", new User("User")));
+    }
+
+    @Test
     public void shouldTellIfABookIsCheckedOut() throws UnknownBook {
         Book book1 = new Book("Title", "Author", 2020);
         ArrayList<Book> books = new ArrayList<>();
@@ -90,6 +105,21 @@ class LibraryTest {
         library.checkOut("Title", new User("User"));
 
         assertTrue(library.isCheckedOut("Title", new User("User")));
+    }
+
+    @Test
+    public void shouldCheckOutABookEvenIfTheUserAlreadyCheckedOutAnotherBook() throws UnknownBook {
+        Book book1 = new Book("Title", "Author", 2020);
+        Book book2 = new Book("Title2", "Author", 2020);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        books.add(book2);
+        Library library = new Library(books);
+        User user = new User("User");
+        library.checkOut("Title", user);
+        library.checkOut("Title2",user);
+
+        assertTrue(library.isCheckedOut("Title2", user));
     }
 
     @Test
@@ -152,9 +182,26 @@ class LibraryTest {
         movies.add(movie);
         library.setMovies(movies);
 
-        library.checkOutMovie("Title");
+        library.checkOutMovie("Title", new User("User"));
 
         assertFalse(library.isAvailableMovie("Title"));
+    }
+
+    @Test
+    public void shouldCheckOutSecondMovie() throws UnknownMovie {
+        ArrayList<Book> books = new ArrayList<>();
+        Library library = new Library(books);
+        Movie movie = new Movie("Title",2020,"Director",2);
+        Movie movie2 = new Movie("Title2",2020,"Director",2);
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        movies.add(movie2);
+        library.setMovies(movies);
+        library.checkOutMovie("Title", new User("User"));
+
+        library.checkOutMovie("Title2", new User("User"));
+
+        assertFalse(library.isAvailableMovie("Title2"));
     }
 
 }

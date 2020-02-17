@@ -37,4 +37,19 @@ class BookTest {
 
         assertThat(book.getPublicationYear(), is(equalTo(2020)));
     }
+
+    @Test
+    public void shouldEqualToSameBooks() {
+        Book book = new Book("Title", "author", 2020);
+        Book sameBook = new Book("Title", "author", 2020);
+
+        assertThat(book,is(equalTo(sameBook)));
+    }
+
+    @Test
+    public void shouldGetStringRepresentationOfABook() {
+        Book book = new Book("Title", "author", 2020);
+
+        assertThat("Title author 2020",is(equalTo(book.getString())));
+    }
 }

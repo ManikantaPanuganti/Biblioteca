@@ -109,6 +109,11 @@ public class ConsoleLibraryUI implements LibraryUI {
         return value;
     }
 
+    @Override
+    public void loginMessage() {
+        System.out.println("Sorry, Please login first!");
+    }
+
     boolean isAdmin() {
         return loginManager.isAdmin();
     }
